@@ -1,0 +1,117 @@
+/* 🎨 Fondo general */
+.recita-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-size: cover; /* Abarca todo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Fondo con imagen */
+  background: linear-gradient(rgba(11, 78, 135, 0.55), rgba(11, 78, 135, 0.55)),
+    url("https://images.pexels.com/photos/8376205/pexels-photo-8376205.jpeg")
+      no-repeat center center/cover;
+}
+
+/* 📋 Tarjeta principal */
+.card {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* 🧾 Título */
+.card h3 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #0b5ed7;
+  margin-bottom: 1.5rem;
+}
+
+/* 🩺 Formulario */
+form .form-label {
+  font-weight: 600;
+  color: #333;
+}
+
+form .form-select,
+form .form-control {
+  border-radius: 10px;
+  border: 1px solid #d8e3f0;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 4px rgba(11, 78, 135, 0.05);
+}
+
+form .form-select:focus,
+form .form-control:focus {
+  border-color: #0b5ed7;
+  box-shadow: 0 0 8px rgba(11, 78, 135, 0.2);
+}
+
+/* 🔘 Botones */
+.btn-primary {
+  background-color: #0b5ed7;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 5px 15px rgba(11, 78, 135, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: #0949ad;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* 💬 Alertas */
+.alert {
+  border-radius: 10px;
+  background-color: #e8f0fe;
+  color: #0b5ed7;
+  font-weight: 500;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem;
+  }
+  .card h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/*  */

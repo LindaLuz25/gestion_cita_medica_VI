@@ -1,0 +1,54 @@
+/* CitasDelDia.css */
+.citas-container {
+  min-height: 100vh;
+  background: url("https://images.pexels.com/photos/518244/pexels-photo-518244.jpeg")
+    center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+}
+
+.citas-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem;
+}
+
+.citas-card h3 {
+  color: #0b5ed7;
+  font-weight: 700;
+  text-align: center;
+}
+
+.citas-table thead {
+  background-color: #0b5ed7;
+  color: #fff;
+  text-align: center;
+}
+
+.citas-table tbody tr:hover {
+  background-color: rgba(11, 94, 215, 0.1);
+  transition: background 0.2s ease-in-out;
+}
+
+.citas-table td,
+.citas-table th {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.citas-btn-volver {
+  margin-top: 1rem;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  font-weight: 600;
+}

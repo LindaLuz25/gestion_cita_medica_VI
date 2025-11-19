@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export const CalendarioRecep = () => {
   const [citas, setCitas] = useState([]);
-  const recepcionista = JSON.parse(localStorage.getItem("usuarioActivo")); // para saber su sede
+  const recepcionista = JSON.parse(localStorage.getItem("usuarioActivo"));
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -5,6 +5,7 @@ import { Card, Button, Form } from "react-bootstrap";
 import emailjs from "emailjs-com";
 import { useNavigate } from "react-router-dom";
 import "./ReCitaPaci.css";
+import { HorariosService } from "../../../services/HorarioService";
 
 
 export const ReCitaPaci = () => {
@@ -56,13 +57,23 @@ export const ReCitaPaci = () => {
     const id = parseInt(e.target.value);
     setMedico(id);
     setHora("");
+
     if (id) {
-      const data = await PacienteService.getHorariosDisponibles(id);
-      setHorarios(data);
+      // Inicializar horarios para ese médico si no existen
+      HorariosService.initHorarios(id, [
+        "09:00", "10:00", "11:00", "12:00",
+        "14:00", "15:00", "16:00"
+      ]);
+
+      // Obtener solo los disponibles
+      const disponibles = HorariosService.getDisponibles(id);
+      setHorarios(disponibles);
     } else {
       setHorarios([]);
     }
   };
+
+
 
   // Confirmar cita
   const handleRegistrarCita = async (e) => {
@@ -73,6 +84,10 @@ export const ReCitaPaci = () => {
       return;
     }
 
+    // 1️⃣ Marcar horario como ocupado
+    HorariosService.ocupar(medico, hora);
+
+    // 2️⃣ Armar la cita
     const dataCita = {
       id: Date.now(),
       dniPaciente: paciente.dni,
@@ -86,7 +101,7 @@ export const ReCitaPaci = () => {
       fechaRegistro: new Date().toLocaleString(),
     };
 
-
+    // 3️⃣ Guardar cita
     const res = CitasService.registrar(dataCita);
 
 
@@ -121,6 +136,7 @@ export const ReCitaPaci = () => {
       setMensaje("❌ Error al registrar la cita.");
     }
   };
+
 
   return (
     <div className="recita-container">

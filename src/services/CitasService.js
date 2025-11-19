@@ -16,6 +16,7 @@ export const CitasService = {
   },
 
 
+
   // 🧩 Filtrar citas por sede
   getBySede: (sede) => {
     const citas = JSON.parse(localStorage.getItem("citasMedicas")) || [];
@@ -45,5 +46,11 @@ export const CitasService = {
     console.log("✅ Citas filtradas:", filtradas);
     return filtradas;
   },
+
+  updateAll: (listaCitas) => {
+    localStorage.setItem("citasMedicas", JSON.stringify(listaCitas));
+    return { success: true };
+  }
+
 
 };

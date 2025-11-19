@@ -7,6 +7,8 @@ import { HomePaciente } from "./components/sub-componets/paciente/HomePaciente";
 import { HomeRecepcionista } from './components/sub-componets/recepcionista/HomeRecepcionista';
 import { ReCitaPaci } from './components/sub-componets/paciente/ReCitaPaci';
 import { CalendarioRecep } from './components/sub-componets/recepcionista/CalendarioRecep';
+import { GestionarCitaRecep } from './components/sub-componets/recepcionista/GestionarCitaRecep';
+import { ListaCitasPaciente } from './components/sub-componets/paciente/ListaCitasPaciente';
 
 export const App = () => {
   return (
@@ -20,6 +22,10 @@ export const App = () => {
         <Route path="/paciente/inicio" element={<HomePaciente />} />
         <Route path="/paciente/inicio/registrar-cita" element={<ReCitaPaci />} />
         <Route path="/recepcionista/inicio/calendario" element={<CalendarioRecep />} />
+        <Route path="/recepcionista/inicio/gestionar-cita" element={<GestionarCitaRecep />} />
+        <Route path="/paciente/inicio/mis-citas" element={<ListaCitasPaciente />} />
+
+
       </Routes>
     </Router>
   )

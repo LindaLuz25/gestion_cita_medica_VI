@@ -50,7 +50,7 @@ export const HomeRecepcionista = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link text-white" to="/recepcionista/calendario">
+              <Link className="nav-link text-white" to="/recepcionista/inicio/gestionar-cita">
                 Gestionar Citas
               </Link>
             </li>

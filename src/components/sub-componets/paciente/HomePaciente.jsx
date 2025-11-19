@@ -55,6 +55,13 @@ export const HomePaciente = () => {
                                 Registrar Cita
                             </Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to="/paciente/inicio/mis-citas" className="nav-link">
+                                📅 Ver Mis Citas
+                            </Link>
+                        </li>
+
+
                         <li className="nav-item ms-3">
                             <button
                                 onClick={handleLogout}

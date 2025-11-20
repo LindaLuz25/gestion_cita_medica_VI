@@ -9,6 +9,7 @@ import { ReCitaPaci } from './components/sub-componets/paciente/ReCitaPaci';
 import { CalendarioRecep } from './components/sub-componets/recepcionista/CalendarioRecep';
 import { GestionarCitaRecep } from './components/sub-componets/recepcionista/GestionarCitaRecep';
 import { ListaCitasPaciente } from './components/sub-componets/paciente/ListaCitasPaciente';
+import { HistorialCitasPaciente } from './components/sub-componets/paciente/HistorialCitasPaciente';
 
 export const App = () => {
   return (
@@ -24,6 +25,8 @@ export const App = () => {
         <Route path="/recepcionista/inicio/calendario" element={<CalendarioRecep />} />
         <Route path="/recepcionista/inicio/gestionar-cita" element={<GestionarCitaRecep />} />
         <Route path="/paciente/inicio/mis-citas" element={<ListaCitasPaciente />} />
+        <Route path="/paciente/inicio/historial" element={<HistorialCitasPaciente />} />
+
 
 
       </Routes>

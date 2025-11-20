@@ -94,9 +94,13 @@ export const HomePaciente = () => {
                         >
                             🩺 Registrar Cita
                         </Link>
-                        <button className="btn btn-outline-light fw-semibold px-4">
+                        <Link
+                            to="/paciente/inicio/historial"
+                            className="btn btn-outline-light fw-semibold px-4"
+                        >
                             📄 Ver Historial
-                        </button>
+                        </Link>
+
                     </div>
                 </div>
             </section>
@@ -113,10 +117,10 @@ export const HomePaciente = () => {
                                     Si no podrás asistir a tu cita, gestionarla aquí, te ayudará a evitar inconvenientes
                                 </p>
                                 <Link
-                                    to="/paciente/inicio/registrar-cita"
+                                    to="/paciente/inicio/mis-citas"
                                     className="btn btn-primary w-100"
                                 >
-                                    Ir a Registrar
+                                    Reprogramar
                                 </Link>
                             </div>
                         </div>

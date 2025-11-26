@@ -8,7 +8,7 @@
 .hero-paciente {
   position: relative;
   height: 70vh;
-  background: url('https://images.pexels.com/photos/5327584/pexels-photo-5327584.jpeg') center/cover no-repeat;
+  background: url('https://media.istockphoto.com/id/2174026510/es/foto/doctora-sonriendo-y-estrechando-la-mano-de-su-paciente-hispano-despu%C3%A9s-de-una-consulta-en-su.jpg?s=1024x1024&w=is&k=20&c=M8eDbkraxFxr188qNbs6GHLaIDFFdeaCfFKyaZJgZIA=') top/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,48 +19,98 @@
 .hero-paciente .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 91, 187, 0.45);
+  background: rgba(0, 38, 89, 0.55);
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 700px;
-  padding: 1.5rem;
+  padding: 1.8rem 2rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.20);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
 }
+
+
 
 .hero-content h1 {
-  font-size: 2.3rem;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #F7FAFF;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.55);
+
 }
 
+/* Párrafos y descripción */
 .hero-content p {
-  font-size: 1.05rem;
+  font-size: 1.2rem;
+  color: #E6EEFF;
+  line-height: 1.55;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+
+}
+
+/* Ajuste de la línea de rol */
+.hero-content .lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #F0F4FF;
 }
 
 /* Cards */
 .paciente-card {
-  border-radius: 16px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1.8px solid rgba(0, 91, 187, 0.12);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.32s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 .paciente-card img {
   height: 220px;
+  width: 100%;
   object-fit: cover;
+  transition: transform 0.35s ease;
 }
 
 .paciente-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 91, 187, 0.18);
+  border-color: rgba(0, 91, 187, 0.25);
 }
 
+.paciente-card:hover img {
+  transform: scale(1.05);
+}
+.paciente-card h5 {
+  font-weight: 700;
+  color: #003c8f; 
+  margin-bottom: 0.4rem;
+}
+
+/* Texto */
+.paciente-card p {
+  color: #315f89;
+  font-size: 0.95rem;
+}
+
+/* Botón */
+.paciente-card .btn {
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 0.45rem 1.1rem;
+}
 /* Responsive */
 @media (max-width: 768px) {
-  .hero-paciente {
-    height: 60vh;
+  .paciente-card img {
+    height: 180px;
   }
 
   .hero-content h1 {
-    font-size: 1.8rem;
+    font-size: 1rem;
   }
 }

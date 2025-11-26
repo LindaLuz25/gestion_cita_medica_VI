@@ -124,7 +124,7 @@ export const ReCitaPaci = () => {
           "UzHus0BIWuwSZ9sgG"      // este es tu public key
         )
         .then(() => {
-          alert("📧 Correo de confirmación enviado con éxito!");
+          alert("✔️Registro de cita exitoso!");
           navigate("/paciente/inicio");
         })
         .catch((error) => {

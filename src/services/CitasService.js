@@ -1,3 +1,7 @@
+const formatDate = (date = new Date()) => {
+  return date.toISOString().split("T")[0];
+};
+
 export const CitasService = {
   // 🧩 Obtener todas las citas
   getAll: () => {

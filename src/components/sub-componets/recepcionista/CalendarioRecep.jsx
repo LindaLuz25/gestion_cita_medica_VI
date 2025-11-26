@@ -15,7 +15,7 @@ export const CalendarioRecep = () => {
     const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
     const sede = usuarioActivo?.sede;
 
-    // ✅ Validar antes de seguir
+    // ✅ Validar antes de seguir 
     if (!sede) {
       console.warn("⚠️ No se encontró sede en el usuario activo");
       return;

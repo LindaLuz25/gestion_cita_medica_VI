@@ -54,6 +54,12 @@ export const HomeRecepcionista = () => {
                 Gestionar Citas
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link text-white" to="/panel-estadisticas">
+                Estadísticas
+              </Link>
+            </li>
+
             <li className="nav-item ms-3">
               <button
                 onClick={handleLogout}

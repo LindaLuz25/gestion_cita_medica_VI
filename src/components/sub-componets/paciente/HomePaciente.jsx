@@ -78,7 +78,7 @@ export const HomePaciente = () => {
             <section className="hero-paciente">
                 <div className="overlay"></div>
                 <div className="hero-content text-center text-white">
-                    <h1 className="fw-bold mb-2">Bienvenido, {usuario.nombre} 👋</h1>
+                    <h1 className="fw-bold mb-2">Bienvenido, {usuario.nombre} 💙</h1>
                     <p className="lead mb-3">
                         Rol: <strong>{usuario.rol}</strong>
                     </p>
@@ -94,9 +94,13 @@ export const HomePaciente = () => {
                         >
                             🩺 Registrar Cita
                         </Link>
-                        <button className="btn btn-outline-light fw-semibold px-4">
+                        <Link
+                            to="/paciente/inicio/historial"
+                            className="btn btn-outline-light fw-semibold px-4"
+                        >
                             📄 Ver Historial
-                        </button>
+                        </Link>
+
                     </div>
                 </div>
             </section>
@@ -107,47 +111,51 @@ export const HomePaciente = () => {
                     <div className="col-md-4">
                         <div className="paciente-card shadow-sm border-0 h-100 text-center">
                             <img src={img1} className="card-img-top" alt="Cita médica" />
-                            <div className="card-body">
-                                <h5 className="fw-bold text-primary">Agendar Cita</h5>
+                            <div className="card-body p-3">
+                                <h5 className="fw-bold text-primary">Reprograma tu Cita</h5>
                                 <p className="text-muted">
-                                    Programa tus citas médicas de manera rápida y sencilla.
+                                    Si no podrás asistir a tu cita, gestionarla aquí, te ayudará a evitar inconvenientes
                                 </p>
                                 <Link
-                                    to="/paciente/inicio/registrar-cita"
+                                    to="/paciente/inicio/mis-citas"
                                     className="btn btn-primary w-100"
                                 >
-                                    Ir a Registrar
+                                    Reprogramar
                                 </Link>
                             </div>
                         </div>
                     </div>
-
                     <div className="col-md-4">
                         <div className="paciente-card shadow-sm border-0 h-100 text-center">
-                            <img src={img2} className="card-img-top" alt="Historial" />
-                            <div className="card-body">
-                                <h5 className="fw-bold text-primary">Historial Médico</h5>
+                            <img src={"https://images.pexels.com/photos/5327584/pexels-photo-5327584.jpeg"} className="card-img-top" alt="Cita médica" />
+                            <div className="card-body p-3">
+                                <h5 className="fw-bold text-primary">Prepárate para tu Cita</h5>
                                 <p className="text-muted">
-                                    Consulta todas tus citas pasadas y los detalles de atención.
+                                    Conoce qué documentos o indicaciones necesitas antes de asistir a tu consulta médica.
                                 </p>
-                                <button className="btn btn-outline-primary w-100">
-                                    Ver Historial
-                                </button>
+                                <Link
+                                    to="/paciente/inicio/mis-citas"
+                                    className="btn btn-primary w-100 mt-3"
+                                >
+                                    Más
+                                </Link>
                             </div>
                         </div>
                     </div>
-
                     <div className="col-md-4">
                         <div className="paciente-card shadow-sm border-0 h-100 text-center">
-                            <img src={img3} className="card-img-top" alt="Perfil" />
-                            <div className="card-body">
-                                <h5 className="fw-bold text-primary">Mi Perfil</h5>
+                            <img src={"https://images.pexels.com/photos/5244065/pexels-photo-5244065.jpeg"} className="card-img-top" alt="Cita médica" />
+                            <div className="card-body p-3">
+                                <h5 className="fw-bold text-primary">Gestiona tus Citas</h5>
                                 <p className="text-muted">
-                                    Actualiza tu información personal y datos de contacto.
+                                    Revisa tus citas pendientes, confirmadas o reprogramadas en un solo lugar.
                                 </p>
-                                <button className="btn btn-outline-primary w-100">
-                                    Ver Perfil
-                                </button>
+                                <Link
+                                    to="/paciente/inicio/mis-citas"
+                                    className="btn btn-primary w-100 mt-3"
+                                >
+                                    Más
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -111,7 +111,7 @@ export const HomePaciente = () => {
                     <div className="col-md-4">
                         <div className="paciente-card shadow-sm border-0 h-100 text-center">
                             <img src={img1} className="card-img-top" alt="Cita médica" />
-                            <div className="card-body">
+                            <div className="card-body p-3">
                                 <h5 className="fw-bold text-primary">Reprograma tu Cita</h5>
                                 <p className="text-muted">
                                     Si no podrás asistir a tu cita, gestionarla aquí, te ayudará a evitar inconvenientes
@@ -121,6 +121,40 @@ export const HomePaciente = () => {
                                     className="btn btn-primary w-100"
                                 >
                                     Reprogramar
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="paciente-card shadow-sm border-0 h-100 text-center">
+                            <img src={"https://images.pexels.com/photos/5327584/pexels-photo-5327584.jpeg"} className="card-img-top" alt="Cita médica" />
+                            <div className="card-body p-3">
+                                <h5 className="fw-bold text-primary">Prepárate para tu Cita</h5>
+                                <p className="text-muted">
+                                    Conoce qué documentos o indicaciones necesitas antes de asistir a tu consulta médica.
+                                </p>
+                                <Link
+                                    to="/paciente/inicio/mis-citas"
+                                    className="btn btn-primary w-100 mt-3"
+                                >
+                                    Más
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4">
+                        <div className="paciente-card shadow-sm border-0 h-100 text-center">
+                            <img src={"https://images.pexels.com/photos/5244065/pexels-photo-5244065.jpeg"} className="card-img-top" alt="Cita médica" />
+                            <div className="card-body p-3">
+                                <h5 className="fw-bold text-primary">Gestiona tus Citas</h5>
+                                <p className="text-muted">
+                                    Revisa tus citas pendientes, confirmadas o reprogramadas en un solo lugar.
+                                </p>
+                                <Link
+                                    to="/paciente/inicio/mis-citas"
+                                    className="btn btn-primary w-100 mt-3"
+                                >
+                                    Más
                                 </Link>
                             </div>
                         </div>

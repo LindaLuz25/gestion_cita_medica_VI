@@ -119,8 +119,9 @@ export const ListaCitasPaciente = () => {
                                             <Form.Control
                                                 type="date"
                                                 value={nuevaFecha}
-                                                onChange={e => setNuevaFecha(e.target.value)}
+                                                disabled   // ⛔ Paciente no puede cambiar la fecha
                                             />
+
                                         </td>
                                         <td>
                                             <Form.Control

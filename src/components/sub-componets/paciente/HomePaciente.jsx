@@ -134,7 +134,7 @@ export const HomePaciente = () => {
                                     Conoce qué documentos o indicaciones necesitas antes de asistir a tu consulta médica.
                                 </p>
                                 <Link
-                                    to="/paciente/inicio/mis-citas"
+                                    to="/paciente/inicio/preparacion-cita"
                                     className="btn btn-primary w-100 mt-3"
                                 >
                                     Más
@@ -151,7 +151,7 @@ export const HomePaciente = () => {
                                     Revisa tus citas pendientes, confirmadas o reprogramadas en un solo lugar.
                                 </p>
                                 <Link
-                                    to="/paciente/inicio/mis-citas"
+                                    to="/paciente/inicio/citas-filtradas"
                                     className="btn btn-primary w-100 mt-3"
                                 >
                                     Más

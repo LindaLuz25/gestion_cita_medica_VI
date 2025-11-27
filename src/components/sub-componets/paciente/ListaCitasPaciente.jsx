@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { CitasService } from "../../../services/CitasService";
 import { Button, Table, Card, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { HorariosService } from "../../../services/HorarioService";
 
-export const ListaCitasPaciente = () => {
+export const ListaCitasPaciente = ({ tipo }) => {
     const navigate = useNavigate();
+    const location = useLocation();
     const paciente = JSON.parse(localStorage.getItem("usuarioActivo"));
 
     const [citas, setCitas] = useState([]);
@@ -16,8 +17,17 @@ export const ListaCitasPaciente = () => {
     useEffect(() => {
         const todas = CitasService.getAll();
         const misCitas = todas.filter(c => c.pacienteId === paciente.id);
-        setCitas(misCitas);
-    }, []);
+
+        // 📌 FILTRO ESPECIAL PARA CARD 3
+        if (tipo === "filtrado") {
+            const filtradas = misCitas.filter(c =>
+                c.estado === "Pendiente" || c.estado === "Reprogramada"
+            );
+            setCitas(filtradas);
+        } else {
+            setCitas(misCitas);
+        }
+    }, [tipo]);
 
     // ❌ Cancelar cita
     const cancelarCita = (id) => {
@@ -97,7 +107,9 @@ export const ListaCitasPaciente = () => {
     return (
         <div className="citas-container">
             <Card className="citas-card">
-                <h3 className="mb-4">📅 Mis Citas</h3>
+                <h3 className="mb-4">
+                    {tipo === "filtrado" ? "📌 Citas Pendientes y Reprogramadas" : "📅 Mis Citas"}
+                </h3>
 
                 <Table striped bordered hover responsive>
                     <thead>
@@ -119,9 +131,8 @@ export const ListaCitasPaciente = () => {
                                             <Form.Control
                                                 type="date"
                                                 value={nuevaFecha}
-                                                disabled   // ⛔ Paciente no puede cambiar la fecha
+                                                disabled
                                             />
-
                                         </td>
                                         <td>
                                             <Form.Control
@@ -147,7 +158,6 @@ export const ListaCitasPaciente = () => {
                                         cita.estado || "Pendiente"
                                     )}
                                 </td>
-
 
                                 <td className="text-center">
                                     {editando === cita.id ? (
@@ -183,7 +193,6 @@ export const ListaCitasPaciente = () => {
                                             )}
                                         </>
                                     )}
-
                                 </td>
                             </tr>
                         ))}
@@ -197,3 +206,4 @@ export const ListaCitasPaciente = () => {
         </div>
     );
 };
+

@@ -1,0 +1,73 @@
+.prep-container {
+  min-height: 100vh;
+  background: url("https://images.pexels.com/photos/7578805/pexels-photo-7578805.jpeg")
+    center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.prep-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  padding: 2.2rem;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(0, 91, 187, 0.18);
+  animation: fadeIn 0.5s ease;
+}
+
+.prep-title {
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: #094a9a;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.prep-desc {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #3a5c86;
+}
+
+.prep-subtitle {
+  margin-top: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0b5ed7;
+}
+
+.prep-list {
+  margin-top: 0.4rem;
+  color: #2c4d70;
+  list-style: square;
+  padding-left: 1.2rem;
+}
+
+.btn-volver {
+  display: block;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.8rem;
+  background: #0b5ed7;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-volver:hover {
+  background: #0949ad;
+  transform: translateY(-3px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}

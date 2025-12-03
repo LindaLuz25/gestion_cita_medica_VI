@@ -1,98 +1,95 @@
+/* CitasDelDia.css */
 .citas-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f8ff 0%, #e3f2fd 100%);
-  font-family: "Poppins", sans-serif;
-  padding: 2rem;
-}
-
-.citas-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.citas-header h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #003c8f;
-}
-
-.citas-header p {
-  font-size: 1.1rem;
-  color: #315f89;
-}
-
-.citas-container {
-  min-height: 100vh;
-  background: url("https://images.pexels.com/photos/5452193/pexels-photo-5452193.jpeg")center/cover no-repeat;
+  background: url("https://images.pexels.com/photos/518244/pexels-photo-518244.jpeg")
+    center/cover no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  font-family: "Poppins", sans-serif;
+  align-items: flex-start;
+  padding: 3rem 1rem;
+  backdrop-filter: brightness(0.9);
 }
 
 .citas-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(8px);
-  padding: 2rem;
-  max-width: 800px;
-  width: 100%;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
   border-radius: 20px;
-  box-shadow: 0 8px 28px rgba(0, 91, 187, 0.18);
-}
-
-.citas-title {
-  font-weight: 800;
-  font-size: 1.8rem;
-  color: #094a9a;
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-.citas-desc {
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #3a5c86;
-}
-
-.citas-table {
+  border: 1.5px solid rgba(0, 91, 187, 0.18);
+  box-shadow: 0 12px 32px rgba(0, 91, 187, 0.15);
   width: 100%;
-  border-collapse: collapse;
+  max-width: 950px;
+  padding: 2.5rem 2rem;
+  animation: fadeIn 0.6s ease;
+}
+
+/* Título */
+.citas-card h3 {
+  color: #003c8f; /* azul más accesible */
+  font-weight: 800;
   text-align: center;
+  font-size: 1.9rem;
   margin-bottom: 1.5rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.citas-table th,
-.citas-table td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #ccc;
+.citas-table thead {
+  background-color: #0b5ed7;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-.estado-disponible {
-  color: #2ecc71; /* verde */
-  font-weight: 600;
+/* Tabla — Filas */
+.citas-table tbody tr {
+  transition: background 0.25s ease;
 }
 
-.estado-ocupado {
-  color: #e74c3c; /* rojo */
-  font-weight: 600;
+.citas-table tbody tr:hover {
+  background-color: rgba(11, 94, 215, 0.12);
 }
 
-.btn-volver {
+
+/* Celdas */
+.citas-table td,
+.citas-table th {
+  vertical-align: middle;
+  text-align: center;
+  padding: 0.9rem;
+  font-size: 0.95rem;
+}
+
+/* Botón volver */
+.citas-btn-volver {
+  margin-top: 1.5rem;
   display: block;
   width: 100%;
-  padding: 0.8rem;
-  background: #0b5ed7;
-  color: #fff;
-  border: none;
+  max-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 12px;
   font-weight: 700;
-  cursor: pointer;
-  transition: 0.3s ease;
+  padding: 0.5rem 1rem;
+  background: #0b5ed7;
+  color: white;
+  border: none;
+  box-shadow: 0 6px 16px rgba(11, 94, 215, 0.25);
+  transition: all 0.3s ease;
 }
 
-.btn-volver:hover {
-  background: #0949ad;
-  transform: translateY(-2px);
+.citas-btn-volver:hover {
+  background: #0949a9;
+  box-shadow: 0 8px 20px rgba(11, 94, 215, 0.35);
+  transform: translateY(-3px);
+}
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

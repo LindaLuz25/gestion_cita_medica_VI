@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import {
-    getUsuarios,
-    addUsuario,
-    loginUsuario,
-    setUsuarioActivo,
     initUsuarios,
 } from "../services/userService";
 import "../css/Login.css";
 import Logo from "../assets/Logo_EsSalud.png";
+import { HorariosService } from "../services/HorarioService";
 
 export const Login = () => {
 
     useEffect(() => {
         initUsuarios(); // Inicializa usuarios base
         localStorage.removeItem("usuarioActivo");
+
+        // Inicializar médicos si no existen
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        if (!usuarios.some(u => u.rol === "medico")) {
+            const medicos = [
+                { dni: "11111111", nombre: "Dr. Juan Pérez", correo: "juan.perez@hospital.com", password: "1234", rol: "medico", especialidad: "Cardiología" },
+                { dni: "22222222", nombre: "Dra. Ana Gómez", correo: "ana.gomez@hospital.com", password: "1234", rol: "medico", especialidad: "Pediatría" },
+                { dni: "33333333", nombre: "Dr. Carlos Ruiz", correo: "carlos.ruiz@hospital.com", password: "1234", rol: "medico", especialidad: "Medicina General" },
+            ];
+            usuarios.push(...medicos);
+            localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+            // Inicializar horarios para cada médico
+            HorariosService.initHorarios("11111111", ["08:00", "09:00", "10:00", "11:00"]);
+            HorariosService.initHorarios("22222222", ["09:00", "10:00", "11:00", "12:00"]);
+            HorariosService.initHorarios("33333333", ["08:30", "09:30", "10:30", "11:30"]);
+        }
     }, []);
 
     const [activeTab, setActiveTab] = useState("login");
@@ -37,7 +51,6 @@ export const Login = () => {
         especialidad: "",
     });
 
-    // Datos de referencia
     const [sedes] = useState([
         { id: 1, nombre: "Sede Central" },
         { id: 2, nombre: "Sede Sur" },
@@ -66,7 +79,6 @@ export const Login = () => {
             return alert("Debe ingresar un celular o correo válido.");
         if (!form.password.trim()) return alert("Debe ingresar una contraseña.");
 
-        // Si el rol es recepcionista, validar sede y especialidad
         if (form.rol === "recepcionista") {
             if (!form.sede) return alert("Debe seleccionar una sede.");
             if (!form.especialidad) return alert("Debe seleccionar una especialidad.");
@@ -83,7 +95,6 @@ export const Login = () => {
         };
 
         const nuevosUsuarios = [...usuarios, nuevoUsuario];
-
         setUsuarios(nuevosUsuarios);
         localStorage.setItem("usuarios", JSON.stringify(nuevosUsuarios));
 
@@ -112,14 +123,7 @@ export const Login = () => {
         );
 
         if (usuario) {
-            if (usuario.rol === "recepcionista") {
-                usuario.sede = usuario.sede || "Sede Central";
-            }
-
-
             localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
-            console.log("✅ Usuario logueado con sede:", usuario.sede);
-
             alert(`Bienvenido ${usuario.nombre} (${usuario.rol})`);
 
             if (usuario.rol === "paciente") {
@@ -129,9 +133,7 @@ export const Login = () => {
             } else {
                 window.location.href = "/principal";
             }
-        }
-
-        else {
+        } else {
             alert("DNI o contraseña incorrectos.");
         }
     };
@@ -253,7 +255,6 @@ export const Login = () => {
                                 />
                             </div>
 
-                            {/* ROL */}
                             <div className="mb-3">
                                 <label className="form-label">Rol</label>
                                 <select
@@ -268,7 +269,6 @@ export const Login = () => {
                                 </select>
                             </div>
 
-                            {/* Si es recepcionista, mostrar combo de sede y especialidad */}
                             {form.rol === "recepcionista" && (
                                 <>
                                     <div className="mb-3">

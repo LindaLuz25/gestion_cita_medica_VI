@@ -1,29 +1,6 @@
-.citas-container {
+.medicos-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f0f8ff 0%, #e3f2fd 100%);
-  font-family: "Poppins", sans-serif;
-  padding: 2rem;
-}
-
-.citas-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.citas-header h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: #003c8f;
-}
-
-.citas-header p {
-  font-size: 1.1rem;
-  color: #315f89;
-}
-
-.citas-container {
-  min-height: 100vh;
-  background: url("https://images.pexels.com/photos/5452193/pexels-photo-5452193.jpeg")center/cover no-repeat;
+  background: url("https://images.pexels.com/photos/6129507/pexels-photo-6129507.jpeg") center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,17 +8,17 @@
   font-family: "Poppins", sans-serif;
 }
 
-.citas-card {
+.medicos-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   padding: 2rem;
-  max-width: 800px;
+  max-width: 900px;
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 8px 28px rgba(0, 91, 187, 0.18);
 }
 
-.citas-title {
+.medicos-title {
   font-weight: 800;
   font-size: 1.8rem;
   color: #094a9a;
@@ -49,22 +26,22 @@
   margin-bottom: 0.5rem;
 }
 
-.citas-desc {
+.medicos-desc {
   font-size: 1rem;
   text-align: center;
   margin-bottom: 1.5rem;
   color: #3a5c86;
 }
 
-.citas-table {
+.medicos-table {
   width: 100%;
   border-collapse: collapse;
   text-align: center;
   margin-bottom: 1.5rem;
 }
 
-.citas-table th,
-.citas-table td {
+.medicos-table th,
+.medicos-table td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #ccc;
 }

@@ -5,6 +5,8 @@ import img1 from "../../../assets/img1.jpg";
 import img2 from "../../../assets/img2.jpg";
 import img3 from "../../../assets/img3.jpg";
 import "../../../css/HomePaciente.css"
+import { FooterPage } from "../../FooterPage";
+
 
 
 export const HomePaciente = () => {
@@ -25,8 +27,9 @@ export const HomePaciente = () => {
 
     return (
         <div className="homePaciente-container">
+
             {/* Navbar */}
-            <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm px-4">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm px-4 mb-15">
                 <a className="navbar-brand fw-bold text-primary" href="#">
                     🏥 EsSalud - Paciente
                 </a>
@@ -52,7 +55,7 @@ export const HomePaciente = () => {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/paciente/inicio/registrar-cita">
-                                Registrar Cita
+                                ✍🏻️ Registrar Cita
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -60,8 +63,11 @@ export const HomePaciente = () => {
                                 📅 Ver Mis Citas
                             </Link>
                         </li>
-
-
+                        <li className="nav-item">
+                            <Link to="/nosotros" className="nav-link">
+                                👥 Nosotros
+                            </Link>
+                        </li>
                         <li className="nav-item ms-3">
                             <button
                                 onClick={handleLogout}
@@ -73,94 +79,135 @@ export const HomePaciente = () => {
                     </ul>
                 </div>
             </nav>
+            <div className="prep-cita-banner">
+                <Link to="/paciente/inicio/preparacion-cita" className="prep-cita-btn">
+                    ⚕️ Prepárate para tu Cita
+                </Link>
+            </div>
+
+
+            <div id="heroCarousel" className="carousel slide hero-carousel" data-bs-ride="carousel">
+                <div className="carousel-inner">
+                    {/* Slide 1 */}
+                    <div className="carousel-item active">
+                        <img src="https://images.pexels.com/photos/6129681/pexels-photo-6129681.jpeg" className="d-block w-100 hero-img" />
+                        <div className="carousel-caption hero-caption">
+                            <h1 className="fw-bold">Bienvenido, {usuario.nombre} 💙</h1>
+                            <p>Gestiona tus citas médicas de forma rápida y fácil.</p>
+                        </div>
+                    </div>
+                    {/* Slide 2 */}
+                    <div className="carousel-item">
+                        <img src="https://images.pexels.com/photos/8442151/pexels-photo-8442151.jpeg" className="d-block w-100 hero-img" />
+                        <div className="carousel-caption hero-caption">
+                            <h1 className="fw-bold">Cuidado de calidad</h1>
+                            <p>Tu salud es nuestra prioridad.</p>
+                        </div>
+                    </div>
+
+                    {/* Slide 3 */}
+                    <div className="carousel-item">
+                        <img src="https://images.pexels.com/photos/6129192/pexels-photo-6129192.jpeg" className="d-block w-100 hero-img" />
+                        <div className="carousel-caption hero-caption">
+                            <h1 className="fw-bold">Servicios modernos</h1>
+                            <p>Atención médica especializada para ti.</p>
+                        </div>
+                    </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon"></span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span className="carousel-control-next-icon"></span>
+                </button>
+            </div>
 
             {/* Hero Section */}
-            <section className="hero-paciente">
-                <div className="overlay"></div>
-                <div className="hero-content text-center text-white">
-                    <h1 className="fw-bold mb-2">Bienvenido, {usuario.nombre} 💙</h1>
-                    <p className="lead mb-3">
-                        Rol: <strong>{usuario.rol}</strong>
-                    </p>
-                    <p>
-                        Gestiona tus citas médicas, revisa tu historial y mantén tus datos
-                        siempre actualizados desde este panel digital.
-                    </p>
+            <section className="hero-tira">
+                <div className="tira-container">
 
-                    <div className="mt-4 d-flex justify-content-center gap-3">
-                        <Link
-                            to="/paciente/inicio/registrar-cita"
-                            className="btn btn-light fw-semibold px-4"
-                        >
-                            🩺 Registrar Cita
-                        </Link>
-                        <Link
-                            to="/paciente/inicio/historial"
-                            className="btn btn-outline-light fw-semibold px-4"
-                        >
-                            📄 Ver Historial
-                        </Link>
+                    <Link to="/paciente/inicio/registrar-cita" className="btn-tira btn-left">
+                        🩺 Registrar Cita
+                    </Link>
 
+                    <div className="tira-info">
+                        <p className="tira-text">
+                            Gestiona tus citas, consulta tu historial y mantén tus datos actualizados.
+                        </p>
+                    </div>
+
+                    <Link to="/paciente/inicio/historial" className="btn-tira btn-right">
+                        📄 Ver Historial
+                    </Link>
+
+                </div>
+            </section>
+
+            {/* Sección sobre el hospital */}
+            <section className="hospital-info-section">
+                <div className="hospital-info-container">
+                    <div className="hospital-info-text">
+                        <h2 className="info-title">Sobre EsSalud</h2>
+                        <p className="info-description">
+                            En EsSalud brindamos atención médica integral con tecnología moderna,
+                            especialistas altamente capacitados y un compromiso constante con el
+                            bienestar de nuestros pacientes.
+                        </p>
+
+                        <Link to="/nosotros" className="btn-info-mas">
+                            Conocer más sobre nosotros →
+                        </Link>
+                    </div>
+
+                    <div className="hospital-info-img">
+                        <img
+                            src="https://images.pexels.com/photos/8460348/pexels-photo-8460348.jpeg"
+                            alt="Hospital EsSalud"
+                        />
                     </div>
                 </div>
             </section>
 
-            {/* Cards Section */}
-            <div className="container my-5">
-                <div className="row g-4">
-                    <div className="col-md-4">
-                        <div className="paciente-card shadow-sm border-0 h-100 text-center">
-                            <img src={img1} className="card-img-top" alt="Cita médica" />
-                            <div className="card-body p-3">
-                                <h5 className="fw-bold text-primary">Reprograma tu Cita</h5>
-                                <p className="text-muted">
-                                    Si no podrás asistir a tu cita, gestionarla aquí, te ayudará a evitar inconvenientes
-                                </p>
-                                <Link
-                                    to="/paciente/inicio/mis-citas"
-                                    className="btn btn-primary w-100"
-                                >
-                                    Reprogramar
-                                </Link>
-                            </div>
+            <section className="doctores-header">
+                <h2 className="doctores-title">👨‍⚕️ Nuestros Mejores Especialistas</h2>
+                <p className="doctores-subtitle">
+                    Conoce a los profesionales altamente capacitados que estarán a tu disposición.
+                </p></section>
+            <div className="container-doctors">
+                <div className="card__container">
+                    <article className="card__article">
+                        <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg" alt="image" className="card__img"></img>
+
+                        <div className="card__data">
+                            <span className="card__description">Especialista en Medicina General</span>
+                            <h2 className="card__title">Dra. María Fernández</h2>
+                            <Link to="/doctora/maria" className="card__button">Ver Perfil</Link>
                         </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="paciente-card shadow-sm border-0 h-100 text-center">
-                            <img src={"https://images.pexels.com/photos/5327584/pexels-photo-5327584.jpeg"} className="card-img-top" alt="Cita médica" />
-                            <div className="card-body p-3">
-                                <h5 className="fw-bold text-primary">Prepárate para tu Cita</h5>
-                                <p className="text-muted">
-                                    Conoce qué documentos o indicaciones necesitas antes de asistir a tu consulta médica.
-                                </p>
-                                <Link
-                                    to="/paciente/inicio/mis-citas"
-                                    className="btn btn-primary w-100 mt-3"
-                                >
-                                    Más
-                                </Link>
-                            </div>
+                    </article>
+
+                    <article className="card__article">
+                        <img src="https://images.pexels.com/photos/32160037/pexels-photo-32160037.jpeg" alt="image" className="card__img"></img>
+
+                        <div className="card__data">
+                            <span className="card__description">Especialista en Pediatría</span>
+                            <h2 className="card__title">Dr. Luis Ramos</h2>
+                            <Link to="/doctor/luis" className="card__button">Ver Perfil</Link>
                         </div>
-                    </div>
-                    <div className="col-md-4">
-                        <div className="paciente-card shadow-sm border-0 h-100 text-center">
-                            <img src={"https://images.pexels.com/photos/5244065/pexels-photo-5244065.jpeg"} className="card-img-top" alt="Cita médica" />
-                            <div className="card-body p-3">
-                                <h5 className="fw-bold text-primary">Gestiona tus Citas</h5>
-                                <p className="text-muted">
-                                    Revisa tus citas pendientes, confirmadas o reprogramadas en un solo lugar.
-                                </p>
-                                <Link
-                                    to="/paciente/inicio/mis-citas"
-                                    className="btn btn-primary w-100 mt-3"
-                                >
-                                    Más
-                                </Link>
-                            </div>
+                    </article>
+
+                    <article className="card__article">
+                        <img src="https://images.pexels.com/photos/15960478/pexels-photo-15960478.jpeg" alt="image" className="card__img"></img>
+
+                        <div className="card__data">
+                            <span className="card__description">Especialista en Cardiología</span>
+                            <h2 className="card__title">Dr. Javier Alarcón</h2>
+                            <Link to="/doctor/javier" className="card__button">Ver Perfil</Link>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
+            <FooterPage />
+
         </div>
     );
 };

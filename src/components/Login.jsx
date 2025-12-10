@@ -1,3 +1,4 @@
+// Login.jsx actualizado con validación de celular único y obligatorio de 9 dígitos
 import React, { useEffect, useState } from 'react';
 import {
     getUsuarios,
@@ -8,6 +9,7 @@ import {
 } from "../services/userService";
 import "../css/Login.css";
 import Logo from "../assets/Logo_EsSalud.png";
+import ResetPasswordModal from "./ResetPasswordModal";
 
 export const Login = () => {
 
@@ -37,7 +39,6 @@ export const Login = () => {
         especialidad: "",
     });
 
-    // Datos de referencia
     const [sedes] = useState([
         { id: 1, nombre: "Sede Central" },
         { id: 2, nombre: "Sede Sur" },
@@ -62,11 +63,21 @@ export const Login = () => {
 
         if (!dniRegex.test(form.dni)) return alert("El DNI debe tener exactamente 8 dígitos.");
         if (!form.nombre.trim()) return alert("Debe ingresar su nombre.");
-        if (!celularRegex.test(form.celular) && !correoRegex.test(form.correo))
-            return alert("Debe ingresar un celular o correo válido.");
+
+        // Celular obligatorio con 9 dígitos
+        if (!celularRegex.test(form.celular))
+            return alert("El número de celular debe tener exactamente 9 dígitos.");
+
+        // Validar celular único
+        const celularExistente = usuarios.find((u) => u.celular === form.celular);
+        if (celularExistente)
+            return alert("El número de celular ya está registrado.");
+
+        if (!correoRegex.test(form.correo))
+            return alert("Debe ingresar un correo válido.");
+
         if (!form.password.trim()) return alert("Debe ingresar una contraseña.");
 
-        // Si el rol es recepcionista, validar sede y especialidad
         if (form.rol === "recepcionista") {
             if (!form.sede) return alert("Debe seleccionar una sede.");
             if (!form.especialidad) return alert("Debe seleccionar una especialidad.");
@@ -116,10 +127,7 @@ export const Login = () => {
                 usuario.sede = usuario.sede || "Sede Central";
             }
 
-
             localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
-            console.log("✅ Usuario logueado con sede:", usuario.sede);
-
             alert(`Bienvenido ${usuario.nombre} (${usuario.rol})`);
 
             if (usuario.rol === "paciente") {
@@ -130,7 +138,6 @@ export const Login = () => {
                 window.location.href = "/principal";
             }
         }
-
         else {
             alert("DNI o contraseña incorrectos.");
         }
@@ -140,7 +147,7 @@ export const Login = () => {
         <div className="login-container">
             <div className="login-card">
                 <div className="text-center mb-3">
-                    <img src={Logo} alt="Logo EsSalud" className="logo"></img>
+                    <img src={Logo} alt="Logo EsSalud" className="logo" />
                     <p className="text-muted">Sistema de Citas Médicas</p>
                 </div>
 
@@ -165,6 +172,7 @@ export const Login = () => {
 
                 {/* Contenido */}
                 <div className="tab-content">
+
                     {/* LOGIN */}
                     {activeTab === "login" && (
                         <form onSubmit={handleLogin}>
@@ -189,6 +197,7 @@ export const Login = () => {
                                     placeholder="********"
                                 />
                             </div>
+                            
                             <button type="submit" className="btn btn-primary w-100">
                                 Ingresar
                             </button>
@@ -229,6 +238,7 @@ export const Login = () => {
                                     maxLength="9"
                                     value={form.celular}
                                     onChange={(e) => setForm({ ...form, celular: e.target.value })}
+                                    required
                                     placeholder="9 dígitos"
                                 />
                             </div>
@@ -239,6 +249,7 @@ export const Login = () => {
                                     className="form-control"
                                     value={form.correo}
                                     onChange={(e) => setForm({ ...form, correo: e.target.value })}
+                                    required
                                     placeholder="ejemplo@correo.com"
                                 />
                             </div>
@@ -253,7 +264,6 @@ export const Login = () => {
                                 />
                             </div>
 
-                            {/* ROL */}
                             <div className="mb-3">
                                 <label className="form-label">Rol</label>
                                 <select
@@ -268,7 +278,6 @@ export const Login = () => {
                                 </select>
                             </div>
 
-                            {/* Si es recepcionista, mostrar combo de sede y especialidad */}
                             {form.rol === "recepcionista" && (
                                 <>
                                     <div className="mb-3">

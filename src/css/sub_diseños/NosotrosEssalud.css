@@ -1,0 +1,127 @@
+/* Hero principal */
+.nosotros-hero {
+height: 60vh;
+position: relative;
+background: url("https://comunicaciones.congreso.gob.pe/wpuploads/2025/10/whatsapp-image-2025-10-21-at-55116-pm.jpeg") center/cover no-repeat;
+display: flex;
+align-items: center;
+justify-content: center;
+border-bottom-left-radius: 30px;
+border-bottom-right-radius: 30px;
+overflow: hidden;
+}
+
+
+.nosotros-hero .overlay {
+position: absolute;
+inset: 0;
+background: rgba(0, 47, 108, 0.55);
+backdrop-filter: blur(3px);
+}
+
+
+.hero-content {
+position: relative;
+z-index: 2;
+text-align: center;
+color: white;
+max-width: 700px;
+padding: 2rem;
+}
+
+
+.hero-content h1 {
+font-size: 3rem;
+font-weight: 800;
+margin-bottom: 1rem;
+text-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+}
+
+
+.hero-content p {
+font-size: 1.25rem;
+line-height: 1.5;
+font-weight: 300;
+text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Cards informativas */
+.nosotros-content {
+max-width: 1200px;
+margin: 3rem auto;
+padding: 0 1rem;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+}
+
+
+.card {
+background: white;
+border-radius: 18px;
+padding: 2rem;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+border: 1px solid #e3e9f2;
+transition: all 0.3s ease;
+}
+
+
+.card:hover {
+transform: translateY(-6px);
+box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+
+.card h2 {
+font-size: 1.8rem;
+margin-bottom: 1rem;
+font-weight: 700;
+color: #0a2b5a;
+}
+
+
+.card p {
+font-size: 1.1rem;
+line-height: 1.6;
+color: #355074;
+}
+
+
+@media (max-width: 768px) {
+.hero-content h1 {
+font-size: 2.2rem;
+}
+.hero-content p {
+font-size: 1.1rem;
+}
+}
+
+.btn-volver {
+  display: block;
+  width: 30%;
+  margin-top: 2rem;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #0b4191, #86a3d3);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(11, 94, 215, 0.35);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-volver:hover {
+  background: linear-gradient(135deg, #0949ad, #083e97);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(9, 73, 173, 0.4);
+}
+
+.btn-volver:active {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(9, 73, 173, 0.35);
+}

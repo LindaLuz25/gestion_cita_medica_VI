@@ -1,0 +1,14 @@
+.heart {
+  position: fixed;
+  top: -2rem;
+  font-size: 1.5rem;
+  animation: fall linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}

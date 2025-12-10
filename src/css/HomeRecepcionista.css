@@ -4,12 +4,19 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Navbar */
+/* --- Navbar fijo --- */
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 999 !important;
+  height: 70px;
+}
+
 .bg-gradient-primary {
   background: linear-gradient(90deg, #007bff, #0056b3);
 }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .hero-section {
   position: relative;
   height: 70vh;
@@ -17,39 +24,76 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 70px; /* evitar que quede debajo del navbar */
 }
 
 .hero-section .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 0 0 30px 30px;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 0 0 35px 35px;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  max-width: 750px;
   padding: 1.5rem;
 }
 
-/* Info cards */
-.info-card {
-  transition: all 0.3s ease;
+/* --- Avisos --- */
+.recep-notice-card {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border-left: 5px solid #0d6efd;
+  font-weight: 500;
 }
 
-.info-card:hover {
+/* --- Médicos --- */
+.recep-doctor-card {
+  background: white;
+  border-radius: 14px;
+  transition: 0.3s ease;
+}
+
+.recep-doctor-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 91, 187, 0.15);
 }
 
-/* Responsive */
+.status-yes {
+  color: #0a9b35;
+  font-weight: bold;
+}
+
+.status-no {
+  color: #c93030;
+  font-weight: bold;
+}
+
+/* --- Contenido general --- */
+.content-wrapper {
+  margin-top: 40px;
+}
+
+/* Panel estadísticas */
+.stats-card {
+  border-radius: 16px;
+}
+
+/* --- Responsive Hero --- */
 @media (max-width: 768px) {
   .hero-section {
-    height: 60vh;
+    height: 62vh;
   }
 
   .hero-content h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
+}
+
+.footer-homerecep{
+  margin-top: 90px;
 }
